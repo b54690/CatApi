@@ -18,6 +18,6 @@ export class SearchComponent implements OnInit{
   }
 
   public getSearchResults() {
-    this.searchService.searchCat().subscribe();
+    this.searchService.searchCat('beng').subscribe();
   }
 }
