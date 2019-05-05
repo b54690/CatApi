@@ -1,6 +1,6 @@
 export class SearchResult {
-  private id: string;
-  private name: string;
+  public id: string;
+  public name: string;
 
   constructor(
     id: string,
