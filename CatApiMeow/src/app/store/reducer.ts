@@ -1,4 +1,4 @@
-import {SearchResult} from '../domain/cat/cat';
+import {SearchResult} from '../domain/searchResult/searchResult';
 import * as CatActions from './actions';
 
 export interface State {

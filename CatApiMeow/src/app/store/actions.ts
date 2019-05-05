@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {SearchResult} from '../domain/cat/cat';
+import {SearchResult} from '../domain/searchResult/searchResult';
 
 export const LOADING = 'Cat Loading';
 
