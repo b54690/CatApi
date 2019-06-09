@@ -1,7 +1,18 @@
-<mat-form-field>
-  <mat-select>
-    <mat-option *ngFor="let breed of breedList" [value]="breed.name">
-      {{breed.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<form #form="ngForm">
+  <mat-form-field>
+    <mat-select>
+      <mat-option
+        *ngFor="let breed of breedList"
+        [value]="breed.name"
+        (onSelectionChange)="getSearchResults($event.source.value)"
+      >
+        {{breed.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-card>
+    <mat-card-header *ngFor="let selectedBreed of breed">
+      {{selectedBreed.name}}
+    </mat-card-header>
+  </mat-card>
+</form>

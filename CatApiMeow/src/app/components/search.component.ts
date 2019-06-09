@@ -1,6 +1,8 @@
 import {SearchService} from '../infrastrcuture/services/search.service';
 import {Component, OnInit} from '@angular/core';
 import {Breed} from '../domain/breeds/breed';
+import {SearchResult} from '../domain/searchResult/searchResult';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -8,21 +10,29 @@ import {Breed} from '../domain/breeds/breed';
 })
 
 export class SearchComponent implements OnInit {
+  public form: FormGroup;
   public breedList: Array<Breed>;
+  public breed: Array<SearchResult>;
 
   constructor(
     private searchService: SearchService
   ) {
-    this.getBreedList();
+    this.form = new FormGroup(
+      {
+        breed: new FormControl('')
+      }
+    );
   }
 
   public ngOnInit() {
-    this.getSearchResults();
     this.getBreedList();
   }
 
-  public getSearchResults() {
-    this.searchService.searchCat('beng').subscribe();
+  public getSearchResults(query: string) {
+    console.log('hello', query)
+    this.searchService.searchCat(query).subscribe((res) => {
+      this.breed = res;
+    });
   }
 
   public getBreedList() {
