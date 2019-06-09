@@ -2,14 +2,12 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SearchComponent} from '../components/search.component';
 import {SearchService} from '../infrastrcuture/services/search.service';
-import {MatFormFieldModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {MaterialUiProvider} from '../providers/materialUi.provider';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatOptionModule
+    MaterialUiProvider
   ],
   declarations: [
     SearchComponent
