@@ -3,6 +3,7 @@ import {SearchResult} from '../../domain/searchResult/searchResult';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import {Breed} from '../../domain/breeds/breed';
 
 @Injectable()
 export class SearchService {
@@ -12,6 +13,24 @@ export class SearchService {
     private http: HttpClient
   ) {
     this.apiKey = 'YOUR_API_KEY';
+  }
+
+  public breedsList(): Observable<Array<Breed>> {
+    const url = 'https://api.thecatapi.com/v1/breeds/';
+    const queryUrl = `${url}`;
+
+    return this.http.get<Breed[]>(queryUrl).map((results) => {
+      const breedResults: Array<Breed> = [];
+
+      results.forEach(res => {
+        const result: Breed = new Breed(
+          res.name
+        );
+        breedResults.push(result);
+      });
+      console.log(breedResults);
+      return breedResults;
+    });
   }
 
   public searchCat(query: string): Observable<Array<SearchResult>> {

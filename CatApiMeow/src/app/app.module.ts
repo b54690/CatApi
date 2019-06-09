@@ -1,11 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {StoreModule} from '@ngrx/store';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {reducer} from './store/reducer';
 import {SearchModule} from './modules/search.module';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,10 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     SearchModule,
     BrowserModule,
-    StoreModule.forRoot(reducer),
-    StoreDevtoolsModule.instrument({
-      maxAge: 10
-    })
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
