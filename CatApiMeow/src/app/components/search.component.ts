@@ -2,7 +2,7 @@ import {SearchService} from '../infrastrcuture/services/search.service';
 import {Component, OnInit} from '@angular/core';
 import {Breed} from '../domain/breeds/breed';
 import {SearchResult} from '../domain/searchResult/searchResult';
-import {FormControl, FormGroup} from '@angular/forms';
+import {MatOptionSelectionChange} from '@angular/material';
 
 @Component({
   selector: 'app-search',
@@ -10,29 +10,24 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 
 export class SearchComponent implements OnInit {
-  public form: FormGroup;
   public breedList: Array<Breed>;
   public breed: Array<SearchResult>;
 
   constructor(
     private searchService: SearchService
   ) {
-    this.form = new FormGroup(
-      {
-        breed: new FormControl('')
-      }
-    );
   }
 
   public ngOnInit() {
     this.getBreedList();
   }
 
-  public getSearchResults(query: string) {
-    console.log('hello', query)
-    this.searchService.searchCat(query).subscribe((res) => {
-      this.breed = res;
-    });
+  public getSearchResults(event: MatOptionSelectionChange, query: string) {
+    if (event.source.selected) {
+      this.searchService.searchCat(query).subscribe((res) => {
+        this.breed = res;
+      });
+    }
   }
 
   public getBreedList() {

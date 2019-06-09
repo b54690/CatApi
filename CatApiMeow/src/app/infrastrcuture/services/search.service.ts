@@ -41,7 +41,6 @@ export class SearchService {
     const queryUrl = `${url}${params}`;
 
     return this.http.get<SearchResult[]>(queryUrl).map((results) => {
-      console.log(results)
       const searchResults: Array<SearchResult> = [];
 
       results.forEach(res => {
