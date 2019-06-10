@@ -55,9 +55,10 @@ export class SearchService {
   }
 
   public searchBreedImage(query: string): Observable<Array<Image>> {
+    // https://api.thecatapi.com/v1/images/search?breed_ids=aege&limit=8
     const url = 'https://api.thecatapi.com/v1/images/search?breed';
     const params: Array<string> = [
-      `_ids=${query}`
+      `_ids=${query}&limit=8`
     ];
     const queryUrl = `${url}${params}`;
 

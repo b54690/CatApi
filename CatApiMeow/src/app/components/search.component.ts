@@ -23,27 +23,23 @@ export class SearchComponent implements OnInit {
     this.getBreedList();
   }
 
-  private getBreedInfo(event: MatOptionSelectionChange, name: string) {
-    if (event.source.selected) {
+  private getBreedInfo(name: string) {
       this.searchService.searchOneBreed(name).subscribe((res) => {
         console.log(res);
         this.breed = res;
       });
-    }
   }
 
-  private getBreedImage(event: MatOptionSelectionChange, id: string) {
-    if (event.source.selected) {
+  private getBreedImage(id: string) {
       this.searchService.searchBreedImage(id).subscribe((res) => {
         this.image = res;
-      });
-    }
+    });
   }
 
   public getSearchResult(event: MatOptionSelectionChange, name: string, id: string) {
     if (event.source.selected) {
-      this.getBreedInfo(event, name);
-      this.getBreedImage(event, id);
+      this.getBreedInfo(name);
+      this.getBreedImage(id);
     }
   }
 
