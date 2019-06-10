@@ -4,7 +4,8 @@
       <mat-option
         *ngFor="let breed of breedList"
         [value]="breed.name"
-        (onSelectionChange)="getSearchResults($event, $event.source.value)"
+        [id]="breed.id"
+        (onSelectionChange)="getSearchResult($event, $event.source.value, $event.source.id)"
       >
         {{breed.name}}
       </mat-option>
@@ -14,5 +15,8 @@
     <mat-card-content *ngFor="let selectedBreed of breed">
       {{selectedBreed.name}}
     </mat-card-content>
+  </mat-card>
+  <mat-card *ngFor="let selectedImage of image">
+    <img mat-card-image src="{{selectedImage.url}}" alt="Photo of breed">
   </mat-card>
 </mat-card>

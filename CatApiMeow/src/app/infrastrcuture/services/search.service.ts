@@ -1,22 +1,20 @@
 import {Observable} from 'rxjs';
-import {SearchResult} from '../../domain/searchResult/searchResult';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {Breed} from '../../domain/breeds/breed';
+import {Breed} from '../../domain/breed/breed';
+import {Image} from '../../domain/image/image';
 
 @Injectable()
 export class SearchService {
-  private apiKey: string;
 
   constructor(
     private http: HttpClient
   ) {
-    this.apiKey = 'YOUR_API_KEY';
   }
 
   public breedsList(): Observable<Array<Breed>> {
-    const url = 'https://api.thecatapi.com/v1/breeds/';
+    const url = 'https://api.thecatapi.com/v1/breeds';
     const queryUrl = `${url}`;
 
     return this.http.get<Breed[]>(queryUrl).map((results) => {
@@ -53,6 +51,28 @@ export class SearchService {
       });
       console.log(searchResults);
       return searchResults;
+    });
+  }
+
+  public searchBreedImage(query: string): Observable<Array<Image>> {
+    const url = 'https://api.thecatapi.com/v1/images/search?breed';
+    const params: Array<string> = [
+      `_ids=${query}`
+    ];
+    const queryUrl = `${url}${params}`;
+
+    return this.http.get<Image[]>(queryUrl).map((results) => {
+      const imageResults: Array<Image> = [];
+
+      results.forEach(res => {
+        const result: Image = new Image(
+          res.id,
+          res.url
+        );
+        imageResults.push(result);
+        console.log(imageResults)
+      });
+      return imageResults;
     });
   }
 }
