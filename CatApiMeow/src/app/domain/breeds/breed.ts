@@ -1,9 +1,12 @@
 export class Breed {
+  public id: string;
   public name: string;
 
   constructor(
-    name: string
+    id: string,
+    name: string,
   ) {
+    this.id = id;
     this.name = name;
   }
 }

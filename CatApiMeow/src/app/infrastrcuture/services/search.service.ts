@@ -24,6 +24,7 @@ export class SearchService {
 
       results.forEach(res => {
         const result: Breed = new Breed(
+          res.id,
           res.name
         );
         breedResults.push(result);
@@ -33,20 +34,20 @@ export class SearchService {
     });
   }
 
-  public searchCat(query: string): Observable<Array<SearchResult>> {
+  public searchOneBreed(query: string): Observable<Array<Breed>> {
     const url = 'https://api.thecatapi.com/v1/breeds/search/?format=json&';
     const params: Array<string> = [
       `q=${query}`,
     ];
     const queryUrl = `${url}${params}`;
 
-    return this.http.get<SearchResult[]>(queryUrl).map((results) => {
-      const searchResults: Array<SearchResult> = [];
+    return this.http.get<Breed[]>(queryUrl).map((results) => {
+      const searchResults: Array<Breed> = [];
 
       results.forEach(res => {
-        const result: SearchResult = new SearchResult(
+        const result: Breed = new Breed(
           res.id,
-          res.name
+          res.name,
         );
         searchResults.push(result);
       });

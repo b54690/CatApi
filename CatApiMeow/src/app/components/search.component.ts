@@ -11,7 +11,7 @@ import {MatOptionSelectionChange} from '@angular/material';
 
 export class SearchComponent implements OnInit {
   public breedList: Array<Breed>;
-  public breed: Array<SearchResult>;
+  public breed: Array<Breed>;
 
   constructor(
     private searchService: SearchService
@@ -24,7 +24,8 @@ export class SearchComponent implements OnInit {
 
   public getSearchResults(event: MatOptionSelectionChange, query: string) {
     if (event.source.selected) {
-      this.searchService.searchCat(query).subscribe((res) => {
+      this.searchService.searchOneBreed(query).subscribe((res) => {
+        console.log(res)
         this.breed = res;
       });
     }
