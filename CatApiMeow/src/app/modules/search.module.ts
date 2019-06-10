@@ -4,13 +4,15 @@ import {SearchComponent} from '../components/search.component';
 import {SearchService} from '../infrastrcuture/services/search.service';
 import {MaterialUiProvider} from '../providers/materialUi.provider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ImageCarouselModule} from './imageCarousel.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialUiProvider,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImageCarouselModule
   ],
   declarations: [
     SearchComponent

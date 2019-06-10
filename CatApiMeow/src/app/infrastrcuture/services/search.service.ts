@@ -67,7 +67,6 @@ export class SearchService {
 
       results.forEach(res => {
         const result: Image = new Image(
-          res.id,
           res.url
         );
         imageResults.push(result);

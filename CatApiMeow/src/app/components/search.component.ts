@@ -12,7 +12,7 @@ import {Image} from '../domain/image/image';
 export class SearchComponent implements OnInit {
   public breedList: Array<Breed>;
   public breed: Array<Breed>;
-  public image: Array<Image>;
+  public images: Array<Image>;
 
   constructor(
     private searchService: SearchService
@@ -32,7 +32,8 @@ export class SearchComponent implements OnInit {
 
   private getBreedImage(id: string) {
       this.searchService.searchBreedImage(id).subscribe((res) => {
-        this.image = res;
+        console.log(res[0].url)
+        this.images = res;
     });
   }
 
