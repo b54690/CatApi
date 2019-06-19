@@ -6,9 +6,15 @@ import {MaterialUiProvider} from '../providers/materialUi.provider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ImageCarouselModule} from './imageCarousel.module';
 import {ToolbarModule} from './toolbar.module';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {path: '', component: SearchPageComponent}
+];
 
 @NgModule({
   imports: [
+    RouterModule.forChild(routes),
     CommonModule,
     MaterialUiProvider,
     FormsModule,
