@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SlickModule} from 'ngx-slick';
 import {AppRoutingModule} from './app-routing.module';
+import {NavBarComponent} from './components/navBar.component';
+import {NavBarModule} from './modules/navBar.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {AppRoutingModule} from './app-routing.module';
     SearchModule,
     BrowserModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    NavBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
