@@ -1,3 +1,6 @@
+<app-toolbar
+[header]="header">
+</app-toolbar>
 <mat-card>
   <mat-form-field>
     <mat-select>
@@ -11,15 +14,12 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-card>
-    <mat-card-content *ngFor="let selectedBreed of breed">
-      {{selectedBreed.name}}
-    </mat-card-content>
-  </mat-card>
-  <!--<mat-card *ngFor="let selectedImage of images">-->
-    <!--<img mat-card-image src="{{selectedImage.url}}" alt="Photo of breed">-->
-  <!--</mat-card>-->
+    <!--<mat-card-content *ngFor="let selectedBreed of breed">-->
+      <!--<mat-card-header>-->
+        <!--{{selectedBreed.name}}-->
+      <!--</mat-card-header>-->
+    <!--</mat-card-content>-->
   <app-image-carousel
-  [images]="images">
+    [images]="images">
   </app-image-carousel>
 </mat-card>

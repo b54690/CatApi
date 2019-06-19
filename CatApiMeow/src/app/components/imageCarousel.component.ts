@@ -15,4 +15,6 @@ export class ImageCarouselComponent {
     config.pauseOnHover = false;
     config.wrap = true;
   }
+
+  public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 }

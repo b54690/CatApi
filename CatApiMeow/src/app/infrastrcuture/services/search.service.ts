@@ -55,7 +55,6 @@ export class SearchService {
   }
 
   public searchBreedImage(query: string): Observable<Array<Image>> {
-    // https://api.thecatapi.com/v1/images/search?breed_ids=aege&limit=8
     const url = 'https://api.thecatapi.com/v1/images/search?breed';
     const params: Array<string> = [
       `_ids=${query}&limit=8`
@@ -70,7 +69,6 @@ export class SearchService {
           res.url
         );
         imageResults.push(result);
-        console.log(imageResults)
       });
       return imageResults;
     });

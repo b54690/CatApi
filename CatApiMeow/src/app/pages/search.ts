@@ -9,7 +9,8 @@ import {Image} from '../domain/image/image';
   templateUrl: '../templates/search.component.html'
 })
 
-export class SearchComponent implements OnInit {
+export class SearchPageComponent implements OnInit {
+  public header = 'Cat Skills';
   public breedList: Array<Breed>;
   public breed: Array<Breed>;
   public images: Array<Image>;
@@ -32,7 +33,6 @@ export class SearchComponent implements OnInit {
 
   private getBreedImage(id: string) {
       this.searchService.searchBreedImage(id).subscribe((res) => {
-        console.log(res[0].url)
         this.images = res;
     });
   }

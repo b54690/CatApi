@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.carousel-item {
+  height: 65vw;
+}
+.carousel img {
+  flex: 1 0 0;
+  z-index: -1;
+  background-size: cover;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-position: center top;
+}
+
+.slick-track {
+  height: 300px;
+}
+
+mat-card {
+  margin: 5px;
+}

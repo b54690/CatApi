@@ -1,10 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SearchComponent} from '../components/search.component';
+import {SearchPageComponent} from '../pages/search';
 import {SearchService} from '../infrastrcuture/services/search.service';
 import {MaterialUiProvider} from '../providers/materialUi.provider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ImageCarouselModule} from './imageCarousel.module';
+import {ToolbarModule} from './toolbar.module';
 
 @NgModule({
   imports: [
@@ -12,13 +13,14 @@ import {ImageCarouselModule} from './imageCarousel.module';
     MaterialUiProvider,
     FormsModule,
     ReactiveFormsModule,
-    ImageCarouselModule
+    ImageCarouselModule,
+    ToolbarModule
   ],
   declarations: [
-    SearchComponent
+    SearchPageComponent
   ],
   exports: [
-    SearchComponent
+    SearchPageComponent
   ],
   providers: [
     SearchService
