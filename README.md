@@ -1,4 +1,4 @@
-CatApi Consumable using Angular (work in progress ✌🏼)
+CatApi Consumable using Angular 7 (work in progress ✌🏼)
 --
 
 A work in progress to practice and demonstrate Angular knowledge consuming data from the https://thecatapi.com/
