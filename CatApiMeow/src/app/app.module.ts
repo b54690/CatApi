@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { NavBarModule } from './modules/navBar';
-import { BaseUrlInterceptor } from './infrastrcuture/interceptors/baseUrl';
+import { BaseUrlInterceptor } from './infrastructure/interceptors/baseUrl';
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
-import { SearchService } from '../infrastrcuture/services/search';
+import { SearchService } from '../infrastructure/services/search';
 import { Component, OnInit } from '@angular/core';
 import { Breed } from '../domain/breed/breed';
 import { MatOptionSelectionChange } from '@angular/material';

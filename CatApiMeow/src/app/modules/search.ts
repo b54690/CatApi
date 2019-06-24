@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchPage } from '../pages/search';
-import { SearchService } from '../infrastrcuture/services/search';
+import { SearchService } from '../infrastructure/services/search';
 import { MaterialUiProvider } from '../providers/materialUi';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageCarouselModule } from './imageCarousel';
