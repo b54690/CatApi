@@ -1,14 +1,13 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {SearchModule} from './modules/search.module';
-import {HttpClientModule} from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { SearchModule } from './modules/search';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {SlickModule} from 'ngx-slick';
-import {AppRoutingModule} from './app-routing.module';
-import {NavBarComponent} from './components/navBar.component';
-import {NavBarModule} from './modules/navBar.module';
+import { AppRoutingModule } from './app-routing.module';
+import { NavBarModule } from './modules/navBar';
+import { BaseUrlInterceptor } from './infrastrcuture/interceptors/baseUrl';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,13 @@ import {NavBarModule} from './modules/navBar.module';
     NgbModule,
     NavBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseUrlInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

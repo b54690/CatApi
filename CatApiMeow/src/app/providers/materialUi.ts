@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatButtonToggleModule,
@@ -6,7 +6,7 @@ import {
   MatFormFieldModule,
   MatOptionModule,
   MatSelectModule,
-  MatToolbar, MatToolbarModule
+  MatToolbarModule
 } from '@angular/material';
 
 @NgModule({
@@ -29,5 +29,7 @@ import {
     MatToolbarModule
   ]
 })
-export class MaterialUiProvider {
+class MaterialUi {
 }
+export { MaterialUi as MaterialUiProvider };
+

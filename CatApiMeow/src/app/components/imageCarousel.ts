@@ -1,13 +1,14 @@
-import {Component, Input} from '@angular/core';
-import {Image} from '../domain/image/image';
+import { Component, Input } from '@angular/core';
+import { Image } from '../domain/image/image';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-image-carousel',
-  templateUrl: '../templates/imageCarousel.component.html'
+  templateUrl: '../templates/imageCarousel.html'
 })
 
-export class ImageCarouselComponent {
+class ImageCarousel {
+  public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
   @Input() public images: Array<Image>;
 
   constructor(config: NgbCarouselConfig) {
@@ -15,6 +16,7 @@ export class ImageCarouselComponent {
     config.pauseOnHover = false;
     config.wrap = true;
   }
-
-  public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 }
+
+export { ImageCarousel as ImageCarouselComponent };
+

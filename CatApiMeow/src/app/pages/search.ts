@@ -1,15 +1,15 @@
-import {SearchService} from '../infrastrcuture/services/search.service';
-import {Component, OnInit} from '@angular/core';
-import {Breed} from '../domain/breed/breed';
-import {MatOptionSelectionChange} from '@angular/material';
-import {Image} from '../domain/image/image';
+import { SearchService } from '../infrastrcuture/services/search';
+import { Component, OnInit } from '@angular/core';
+import { Breed } from '../domain/breed/breed';
+import { MatOptionSelectionChange } from '@angular/material';
+import { Image } from '../domain/image/image';
 
 @Component({
   selector: 'app-search',
-  templateUrl: '../templates/search.component.html'
+  templateUrl: '../templates/search.html'
 })
 
-export class SearchPageComponent implements OnInit {
+class Search implements OnInit {
   public header = 'Cat Skills';
   public breedList: Array<Breed>;
   public breed: Array<Breed>;
@@ -50,3 +50,6 @@ export class SearchPageComponent implements OnInit {
     });
   }
 }
+
+export { Search as SearchPage };
+

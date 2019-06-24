@@ -1,5 +1,5 @@
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -9,11 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './modules/home.module#HomeModule'
+    loadChildren: './modules/home#HomeModule'
   },
   {
     path: 'search',
-    loadChildren: './modules/search.module#SearchModule'
+    loadChildren: './modules/search#SearchModule'
   }
 ];
 

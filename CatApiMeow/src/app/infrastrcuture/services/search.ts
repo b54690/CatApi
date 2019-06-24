@@ -1,12 +1,12 @@
-import {Observable} from 'rxjs';
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {Breed} from '../../domain/breed/breed';
-import {Image} from '../../domain/image/image';
+import { Breed } from '../../domain/breed/breed';
+import { Image } from '../../domain/image/image';
 
 @Injectable()
-export class SearchService {
+class Search {
 
   constructor(
     private http: HttpClient
@@ -14,10 +14,8 @@ export class SearchService {
   }
 
   public breedsList(): Observable<Array<Breed>> {
-    const url = 'https://api.thecatapi.com/v1/breeds';
-    const queryUrl = `${url}`;
 
-    return this.http.get<Breed[]>(queryUrl).map((results) => {
+    return this.http.get<Breed[]>(`breeds`).map((results) => {
       const breedResults: Array<Breed> = [];
 
       results.forEach(res => {
@@ -33,13 +31,8 @@ export class SearchService {
   }
 
   public searchOneBreed(query: string): Observable<Array<Breed>> {
-    const url = 'https://api.thecatapi.com/v1/breeds/search/?format=json&';
-    const params: Array<string> = [
-      `q=${query}`,
-    ];
-    const queryUrl = `${url}${params}`;
 
-    return this.http.get<Breed[]>(queryUrl).map((results) => {
+    return this.http.get<Breed[]>(`breeds/search/?format=json&q=${query}`).map((results) => {
       const searchResults: Array<Breed> = [];
 
       results.forEach(res => {
@@ -55,13 +48,8 @@ export class SearchService {
   }
 
   public searchBreedImage(query: string): Observable<Array<Image>> {
-    const url = 'https://api.thecatapi.com/v1/images/search?breed';
-    const params: Array<string> = [
-      `_ids=${query}&limit=8`
-    ];
-    const queryUrl = `${url}${params}`;
 
-    return this.http.get<Image[]>(queryUrl).map((results) => {
+    return this.http.get<Image[]>(`images/search?breed_ids=${query}&limit=8`).map((results) => {
       const imageResults: Array<Image> = [];
 
       results.forEach(res => {
@@ -74,3 +62,5 @@ export class SearchService {
     });
   }
 }
+export { Search as SearchService };
+
