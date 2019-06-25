@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Image } from '../domain/image/image';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { FavouritesService } from '../infrastructure/services/favourites';
 
 @Component({
   selector: 'app-image-carousel',
@@ -8,13 +8,17 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 
 class ImageCarousel {
-  public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
+  public slideConfig = { 'slidesToShow': 4, 'slidesToScroll': 4 };
   @Input() public images: Array<Image>;
 
-  constructor(config: NgbCarouselConfig) {
-    config.keyboard = false;
-    config.pauseOnHover = false;
-    config.wrap = true;
+  constructor(
+    private favouritesService: FavouritesService
+  ) {
+  }
+
+  public favouriteSelect(imageId): void {
+    console.log('fave select', imageId);
+    this.favouritesService.selectFavouriteImage('User-123', imageId).subscribe();
   }
 }
 

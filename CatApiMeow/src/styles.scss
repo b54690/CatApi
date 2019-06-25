@@ -7,8 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 65vw;
 }
 .carousel img {
-  flex: 1 0 0;
-  z-index: -1;
   background-size: cover;
   object-fit: cover;
   padding: 0;
@@ -16,7 +14,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: block;
   width: 100%;
   height: 100%;
-  background-position: center top;
 }
 
 .slick-track {

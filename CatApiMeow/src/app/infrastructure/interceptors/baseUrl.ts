@@ -8,6 +8,8 @@ class BaseUrl implements HttpInterceptor {
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    console.log(req)
+
     const apiRequest = req.clone({url: `${catApiMeow.api.url}/${req.url}`});
 
     return next.handle(apiRequest);

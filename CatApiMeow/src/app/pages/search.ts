@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Breed } from '../domain/breed/breed';
 import { MatOptionSelectionChange } from '@angular/material';
 import { Image } from '../domain/image/image';
+import { FavouritesService } from '../infrastructure/services/favourites';
+import { Favourite } from '../domain/user/favourite';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +18,8 @@ class Search implements OnInit {
   public images: Array<Image>;
 
   constructor(
-    private searchService: SearchService
+    private searchService: SearchService,
+    private favouritesService: FavouritesService
   ) {
   }
 
@@ -24,27 +27,27 @@ class Search implements OnInit {
     this.getBreedList();
   }
 
-  private getBreedInfo(name: string) {
+  private getBreedInfo(name: string): void {
       this.searchService.searchOneBreed(name).subscribe((res) => {
         console.log(res);
         this.breed = res;
       });
   }
 
-  private getBreedImage(id: string) {
+  private getBreedImage(id: string): void {
       this.searchService.searchBreedImage(id).subscribe((res) => {
         this.images = res;
     });
   }
 
-  public getSearchResult(event: MatOptionSelectionChange, name: string, id: string) {
+  public getSearchResult(event: MatOptionSelectionChange, name: string, id: string): void {
     if (event.source.selected) {
       this.getBreedInfo(name);
       this.getBreedImage(id);
     }
   }
 
-  public getBreedList() {
+  public getBreedList(): void {
     this.searchService.breedsList().subscribe((res) => {
       this.breedList = res;
     });

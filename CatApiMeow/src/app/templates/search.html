@@ -10,11 +10,14 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <!--<mat-card-content *ngFor="let selectedBreed of breed">-->
-  <!--<mat-card-header>-->
-  <!--{{selectedBreed.name}}-->
-  <!--</mat-card-header>-->
-  <!--</mat-card-content>-->
-  <app-image-carousel [images]="images">
+  <app-image-carousel
+    [images]="images"
+  >
   </app-image-carousel>
 </mat-card>
+
+<mat-card-content *ngFor="let selectedBreed of breed">
+  <mat-card-header>
+    {{selectedBreed.name}}
+  </mat-card-header>
+</mat-card-content>

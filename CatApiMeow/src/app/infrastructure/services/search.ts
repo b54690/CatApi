@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Breed } from '../../domain/breed/breed';
 import { Image } from '../../domain/image/image';
+import { Favourite } from '../../domain/user/favourite';
 
 @Injectable()
 class Search {
@@ -25,7 +26,6 @@ class Search {
         );
         breedResults.push(result);
       });
-      console.log(breedResults);
       return breedResults;
     });
   }
@@ -42,7 +42,6 @@ class Search {
         );
         searchResults.push(result);
       });
-      console.log(searchResults);
       return searchResults;
     });
   }
@@ -54,7 +53,8 @@ class Search {
 
       results.forEach(res => {
         const result: Image = new Image(
-          res.url
+          res.url,
+          res.id
         );
         imageResults.push(result);
       });
@@ -63,4 +63,6 @@ class Search {
   }
 }
 export { Search as SearchService };
+
+
 

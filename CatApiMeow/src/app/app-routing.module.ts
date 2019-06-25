@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: './modules/search#SearchModule'
+  },
+  {
+    path: 'favourites',
+    loadChildren: './modules/favourites#FavouritesModule'
   }
 ];
 

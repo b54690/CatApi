@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageCarouselModule } from './imageCarousel';
 import { ToolbarModule } from './toolbar';
 import { RouterModule, Routes } from '@angular/router';
+import { FavouritesService } from '../infrastructure/services/favourites';
 
 const routes: Routes = [
   { path: '', component: SearchPage }
@@ -29,7 +30,8 @@ const routes: Routes = [
     SearchPage
   ],
   providers: [
-    SearchService
+    SearchService,
+    FavouritesService
   ]
 })
 export class SearchModule {

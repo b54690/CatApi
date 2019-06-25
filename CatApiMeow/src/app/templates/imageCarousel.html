@@ -1,6 +1,6 @@
 <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
   <div ngxSlickItem *ngFor="let image of images">
-    <img src="{{ image.url }}" alt="">
+    <button style="background-color: green" (click)="favouriteSelect(image.id)"><img src="{{ image.url }}" alt=""></button>
   </div>
 </ngx-slick>
 <br>
